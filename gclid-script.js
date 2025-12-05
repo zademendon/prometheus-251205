@@ -1,11 +1,6 @@
 // get url parameters
 const urlParams = new URLSearchParams(window.location.search)
 
-// log url parameters
-for (const [key, value] of urlParams) {
-  console.log(key, value)
-}
-
 // set gclid, if available
 let gclid
 if (urlParams.get('gclid')) gclid = urlParams.get('gclid')
