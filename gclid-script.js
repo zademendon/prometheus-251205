@@ -6,7 +6,7 @@ let gclid
 if (urlParams.get('gclid')) gclid = urlParams.get('gclid')
 else if (localStorage.getItem('pro_gclid')) gclid = localStorage.getItem('pro_gclid')
 
-// write cookie
+// save gclid in localStorage
 if (gclid && !localStorage.getItem('pro_gclid')) localStorage.setItem('pro_gclid', gclid)
 
 // insert gclid in links to app subdomain
