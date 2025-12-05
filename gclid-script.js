@@ -7,9 +7,7 @@ if (urlParams.get('gclid')) gclid = urlParams.get('gclid')
 else if (localStorage.getItem('pro_gclid')) gclid = localStorage.getItem('pro_gclid')
 
 // write cookie
-if (gclid && !localStorage.getItem('pro_gclid')) {
-  localStorage.setItem('pro_gclid', gclid)
-}
+if (gclid && !localStorage.getItem('pro_gclid')) localStorage.setItem('pro_gclid', gclid)
 
 // insert gclid in links to app subdomain
 if (gclid) {
@@ -17,11 +15,11 @@ if (gclid) {
   const links = document.querySelectorAll('a')
 
   links.forEach(link => {
-    if (link.href.includes('gclid=')) return;
-    if (link.hostname !== targetSubdomain) return;
+    if (link.href.includes('gclid=')) return
+    if (link.hostname !== targetSubdomain) return
 
-    const url = new URL(link.href, location.href);
-    url.searchParams.set('gclid', gclid);
-    link.href = url.toString();
+    const url = new URL(link.href, location.href)
+    url.searchParams.set('gclid', gclid)
+    link.href = url.toString()
   })
 }
